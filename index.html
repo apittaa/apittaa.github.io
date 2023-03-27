@@ -1,0 +1,514 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arthur Pitta | Data Analyst</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div>
+							<img src="images/perfil.png" alt="Profile Photo" width="200">
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>ARTHUR PITTA</h1>
+								<h3>Data Analyst</h3>
+								<p>SQL | Excel | Power BI | Python</p>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/pittaa/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://www.instagram.com/arthurpython_/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/DevPitta" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://medium.com/@arthurpitta21" target="_blank" class="icon brands fa-medium-m"><span class="label">Facebook</span></a></li>
+									<li><a href="https://docs.google.com/document/d/1E7iRbXoY0BJjvlmxH99yVK152J61N2HAwrXIgcuduE0/edit?usp=sharing" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Intro</a></li>
+								<li><a href="#work">Work</a></li>
+								<li><a href="#about">About</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!-- <li><a href="#elements">Elements</a></li> -->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Intro</h2>
+								<span class="image main"><img src="images/intro.jpg" alt=""/></span>
+								<p>Data Analyst with educational vocation.</p>
+								<p>I try to improve knowledge I have, in addition to always being in constant learning. Also, I try to help people who are interested in starting out in the area of programming. Therefore, I created an Instagram profile with the aim of imparting knowledge and helping people to become programmers.</p>
+							</article>
+
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">PYTHON - Esports Earnings</h2>
+								<a href="#esports"><span class="image main"><img src="images/Esports_capa.jpg" alt="" /></span></a>
+								<p>Analysis of Esports Earnings during 1998 - 2023.</p>
+								<a class="button" href="#esports">More</a>
+							</article>		
+
+							<!-- Esports Analysis -->
+								<article id="esports">
+									<span class="image main"><img src="images/Esports_capa.jpg" alt="" /></span>
+									<h3>1 INTRODUCTION</h3>
+									<p>I have always been passionate about video games and then esports. Then, I came across this dataset and I thought it would be interesting to explore the trends in the industry. I hope you enjoy this notebook as much as I enjoyed creating it.</p> 
+									<p> <a href="https://en.wikipedia.org/wiki/Esports" target="_blank">Esports</a> (also known as electronic sports, e-sports, or eSports) is a form of competition using video games. Most commonly, esports takes the form of organized, multiplayer video game competitions, particularly between professional players, individually or as teams. Esports often takes the form of organized, multiplayer video game competitions, particularly between professional players, individually or as teams. Although organized competitions have long been a part of video game culture, these were largely between amateurs until the late 2000s when participation by professional gamers of all ages and amateur competitors from around the world began to take place on a more regular basis. Esports is also a multi-million dollar industry with several professional players and teams earning six-figure salaries from sponsors and prize money.</p>
+									<p>This notebook will explore the trends in the industry from 1998 to 2023. The data used in this notebook is from <a href="https://www.esportsearnings.com/" target="_blank">Esports Earnings</a>. The data is available in csv format and can be downloaded from <a href="https://www.kaggle.com/datasets/rankirsh/esports-earnings" target="_blank">Kaggle</a>. The data is updated monthly and the latest data is from 2023-02-01.</p>
+									<p>This analysis was inspired by this <a href="https://www.kaggle.com/code/rankirsh/esports-earnings-analysis/report" target="_blank">notebook</a>.</p>
+									<h3>2 EXPLORATORY ANALYSIS</h3>
+									<p>In this section, the data will be explored to find trends in the Esports industry</p>
+									<H4>2.1 Biggest Games (Earnings)</H4>
+									<p>Exploring the top 10 games with the highest earnings.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/3.embed?autosize=true&link=false"></iframe>
+									<p>There are no surprise that in the top 10 games, the most popular games as Dota 2, Fortnite, CS:GO and League of Legends are present.</p>
+									<p>To go deeper into the analysis, let's see the prize evolution of the top 5 games with the highest earnings.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/5.embed?autosize=true&link=false"></iframe>
+									<p>It is possible to see that the games distribution of prize is not uniform. Dota 2 and LOL, for example, distribute the prizes in a cyclical manner, with a peak in prize money every year. CS:GO, on the other hand, is more stable, with a more linear distribution. For Fortnite and Arena of Valor, the distribution of prizes is irregular.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/7.embed?autosize=true&link=false"></iframe>
+									<p>The earnings are concentrated in few games. The top 4 games (Dota 2, Fortnite, CS:GO and League of Legends) represent almost 50% of the total earnings and about 70% of the total earnings are concentrated in the top 10 games. It is quite surprising that about a fifth of the total earnings are solely from Dota 2.</p>
+									<h4>2.2 Biggest Games (Tournaments)</h4>
+									<p>Exploring the top 10 games with the highest tournaments.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/9.embed?autosize=true&link=false"></iframe>
+									<p>There is not a surprise that Dota 2, Fortnite, CS:GO and League of Legends are in both the two top 10 lists. Something that is interesting is that the top 10 games with the highest earnings are not the same as the top 10 games with the highest number of tournaments. This is because some games have a lot of tournaments but the prize money is not that high. For example, the game 'Rocket League' has 2.8 thousand tournaments but the prize money is only $27 million. On the other hand, the game 'Dota 2' has 1.7 thousand tournaments but the prize money is $311 million.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/11.embed?autosize=true&link=false"></iframe>
+									<p>The tournament distribution between the top 4 games is similar. However, it is interesting to observe that 'Super Smash Bros. Melee' tournaments started in 2003 and only around 2014 the amount of tournaments started to increase, but the tournaments decreased around 2018 probably due to the release of 'Super Smash Bros. Ultimate' in the same year.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/13.embed?autosize=true&link=false"></iframe>
+									<p>The tournaments are less concentrated than the earnings, which reflects the fact that there are more games with a lot of tournaments but with a low prize money.</p>
+									<h4>3.3 Earnings and Tournaments Over Time</h4>
+									<p>In this section, we will explore the evolution of the earnings and tournaments over time.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/15.embed?autosize=true&link=false"></iframe>
+									<p>It is possible to see that the number of earnings increased over time. The Esports industry jumped from earnings in 2011 and 2012 and has achieved a total of $252 million in 2019.</p>
+									<p>It is interesting to observe that in 2009 due to the economic crisis and em 2020 due to the pandemic, the number of earnings decreased. Indeed the pandemic has strongly affected the esports scenario, but in 2021 and 2022 the number of earnings increased again. This demonstrates that the esports industry is resilient and is able to overcome adversities.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/17.embed?autosize=true&link=false"></iframe>
+									<p>The tournaments also increased over time. The number of tournaments started strongly increasing in 2011 and has stabilized from 2015 onwards with a mean of 5 thousand tournaments.</p>
+									<h4>3.4 Earnings and Tournaments by Month</h4>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/19.embed?autosize=true&link=false"></iframe>
+									<p>There is a clear pattern in the earnings by month. The earnings are concentrated in the months of August and October. This is probably due to the fact that the most important tournaments are held in these months.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/21.embed?autosize=true&link=false"></iframe>
+									<p>Regarding the tournaments, the beginning of the year is the less active period, with the number of tournaments increasing from March and April.</p>
+									<h4>3.5 Games that distribute prizes for the most players</h4>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/23.embed?autosize=true&link=false"></iframe>
+									<p>There is interesting to observe that the majority of the games are played in teams of 5 players (LOL, Dota 2, CS:GO) or are part of the Battle Royal genre (Fortnite, PUBG), which is a genre that is played in 100 players for each match.</p>
+									<h4>3.6 Earnings by genre</h4>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/25.embed?autosize=true&link=false"></iframe>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/27.embed?autosize=true&link=false"></iframe>
+									<p>The genre with the highest earnings as expected is the MOBA, followed by the FPS and Battle Royal. This is probably due to the fact that the this genres were projected to the esports scenario and have a lot of tournaments and prize money.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/29.embed?autosize=true&link=false"></iframe>
+									<p>Regarding the number of games in each genre, is not a surprise that Fighting, FPS and Sports are the genres with the highest number of games, once these genres are more franchise and are released more often.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/31.embed?autosize=true&link=false"></iframe>
+									<p>There is interesting to observe that the top 2 games with the highest earnings are in the MOBA and Battle Royal genres, which appears mostly after 2015. This is probably due to the fact that these genres were designed to the esports scenario.</p>
+									<h4>3.7 Game release date</h4>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/33.embed?autosize=true&link=false"></iframe>
+									<p>It is possible to observe that the Realeases had two falls, the first in the economic crisis of 2007-2008 and the other in the pandemic period.</p>
+									<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/35.embed?autosize=true&link=false"></iframe>
+									<p>It is possible to seem that is no correlation between the release date and the success of the game. The games with the highest earnings were released in different years.</p>
+									<h3>4 Conclusions</h4>
+									<p>The insights of this analysis are:</p>
+									<ul>
+										<li>The prizes are concentrated between few games, but the tournaments are more distributed.</li>
+										<li>Dota 2 is the game with the highest earnings and Starcraft II is the game with the highest number of tournaments.</li>
+										<li>The number of tournaments and earnings increased over time.</li>
+										<li>The earnings are concentrated in the months of August and October.</li>
+										<li>Tournaments are lower in january and february, and increase from March and April continuing steadily until the end of the year.</li>
+										<li>The Esports industry is mainly dominated by the MOBA and Battle Royal genres.</li>
+										<li>There is not a correlation between the release date and the success of the game.</li>
+										<li>The Economic crisis of 2007-2008 and the pandemic of 2020 affected the number of earnings and tournaments, but the industry is resilient and is able to overcome adversities.</li>
+										<li>Finally, the Esports industry is growing and is expected to continue growing in the future, with a lot of opportunities for the future. Then, it will be interesting to see how the industry will evolve in the future.</li>
+									</ul>
+									<h6>The full project can be viewed on my GitHub:</h6>
+									<p><a href="https://github.com/DevPitta/data_analysis/blob/main/esports_earnings_1998_2023/esports_eranings.ipynb"  target="_blank">Esports Earnings Analysis</a></p>
+										
+								</article>
+							
+							<article id="work">
+								<h2 class="major">POWER BI - Tech Layoffs</h2>
+								<a href="#tech-layoffs"><span class="image main"><img src="images/Layoffs_capa.jpg" alt="" /></span></a>
+								<p>Dynamic analysis of tech layoffs worldwide during Jan 2020 - Fev 2023.</p>
+								<a class="button" href="#tech-layoffs">More</a>
+							</article>
+
+							<!-- Tech Layoffs Analysis -->
+								<article id="tech-layoffs">
+									<span class="image main"><img src="images/Layoffs_capa.jpg" alt="" /></span>
+									<h3>1 INTRODUCTION</h3>
+									<p>After several news about layoffs in the technology industry, I became curious about the volume of layoffs has experienced in 2022 and 2023. Then, I decided to analyze the number of layoffs that occurred in the last 3 years to understand this scenario.</p>
+									<p>The tech industry is one of the most dynamic industries in the world. It is constantly evolving and changing, and this is reflected in the number of layoffs that occur in the industry.</p>
+									<p>In this project, I will analyze the number of layoffs that occurred in the tech industry in the last 3 years. The data used in this analysis is from <a href="https://www.kaggle.com/datasets/swaptr/layoffs-2022" target="_blank">Layoffs.fyi</a>, which is a website that collects information about layoffs in the tech industry. The data is available in csv format and can be downloaded from <a href="https://www.kaggle.com/datasets/swaptr/layoffs-2022" target="_blank">Kaggle</a>.</p>
+									<iframe class="analysis_iframe" title="tech_layoffs_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNTA2MDZmMTQtMjY1MC00MTUxLWE1NjEtYTViMzZjNzViMTQ4IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9" frameborder="0" allowFullScreen="true"></iframe>
+									<h3>2 Key insights:</h3>
+										<ul>
+											<li>Layoffs were higher in 2020, then dropped in 2021 and skyrocketed in 2022 and 2023.</li>
+											<li>Consumer, retail, transportation and finance face sharp increase in layoffs.</li>
+											<li>United States had the highest number of layoffs compared to other countries.</li>
+											<li>The top 10 companies made more than 25% of total layoffs.</li>
+										</ul>
+									<h3>3 Key reasons for layoffs:</h3>
+										<ul>
+											<li>Economic uncertainty.</li>
+											<li>Decrease in e-commerce activity.</li>
+											<li>Pressure from investors.</li>
+											<li>Declining revenue.</li>
+											<li>Signs of a mature industry.</li>
+											<li>Ingrained mentality that layoffs increase profitability.</li>
+										</ul>
+									<h6>The project can be viewed on my Power BI page:</h6>
+									<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNTA2MDZmMTQtMjY1MC00MTUxLWE1NjEtYTViMzZjNzViMTQ4IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9" target="_blank">Tech Layoffs - Data Analysis</a></p>
+
+								</article>
+									
+							<article id="work">
+								<h2 class="major">POWER BI - Covid-19</h2>
+								<a href="#covid-19"><span class="image main"><img src="images/covid-19_capa.png" alt="" /></span></a>
+								<p>Dashboard analyzing the world scenario of Covid-19 during Fev 2020 - Fev 2023.</p>
+								<a class="button" href="#covid-19">More</a>
+							</article>
+							
+							<!-- Tech Layoffs Analysis -->
+								<article id="covid-19">
+									<span class="image main"><img src="images/covid-19_capa.png" alt="" /></span>
+									<h3>OVERVIEW</h3>
+									<p>After the Covid-19 pandemic, I became curious about the evolution of the pandemic and how it was affecting the world. Then, I decided to analyze the evolution of the pandemic in the world.</p>
+									<p>Coronaviruses (CoV) are a broad family of viruses that can cause a variety of conditions, from the common cold to more serious illnesses such as Middle East respiratory syndrome (MERS-CoV) and respiratory syndrome. severe acute illness (SARS-CoV).</p>
+									<p>Novel coronavirus (nCoV) is a new strain of coronavirus that had previously been identified in humans. Known as 2019-nCoV or COVID-19, it was only detected after an outbreak was reported in Wuhan, China, in December 2019.</p>
+									<p>The data used in this analysis is from <a href="https://github.com/owid/covid-19-data/blob/master/public/data/README.md" target="_blank">Our World in Data</a>, which is a scientific online publication that focuses on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.</p>
+									<iframe class="analysis_iframe" title="COVID19_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiN2Q0MDQ3M2QtNmU1ZS00MTE1LWFkMzgtZGIwZDZjMjk5MWY5IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+									<h6>The project can be viewed on my Power BI page:</h6>
+									<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNTA2MDZmMTQtMjY1MC00MTUxLWE1NjEtYTViMzZjNzViMTQ4IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9" target="_blank">Covid-19 - Data Analysis</a></p>																								
+								</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">About</h2>
+								<span class="image main"><img src="images/about.png" alt="" /></span>
+								<p>My name is Arthur Pitta,</p>
+								<p>I work as a Business Intelligence Analyst, I have a degree in Physical Education and in my master's and doctorate I used Matlab to process data. I never imagined that while studying Physical Education I would use programming. I confess that at first I was a little scared because I'm not in the area of exact sciences or technology. However, I enjoyed programming from the first contact I had with this new area of knowledge.</p>
+								<p>Before starting to learn Python, I had worked with MATLAB. Due to the "similarity" between these tools in working with data, I decided to choose Python. So, I started studying python and instead of just liking it, I fell in love with programming. I decided to continue in the web development area, but by coincidence or not, I returned to the data area.</p>
+								<p>I also have a vocation for teaching, so I decided to create an Instagram and post articles on Medium to share knowledge, content, doubts, difficulties and the reality of those who are learning and working with python.</p>
+							</article>
+						
+							
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="https://formsubmit.co/412144f15e20112fc298ac1a3577c8af">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" required/>
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" required/>
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4" required></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+									<input type="hidden" name="_next" value="http://127.0.0.1:5500/#thanks">
+								</form>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/pittaa/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://www.instagram.com/arthurpython_/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/DevPitta" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://medium.com/@arthurpitta21" target="_blank" class="icon brands fa-medium-m"><span class="label">Facebook</span></a></li>
+									<li><a href="https://docs.google.com/document/d/1E7iRbXoY0BJjvlmxH99yVK152J61N2HAwrXIgcuduE0/edit?usp=sharing" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
+								</ul>
+							</article>
+
+							<!-- Thank you -->
+							<article id="thanks">
+								<div>
+									<center><img src="images/perfil.png" alt="Profile Photo" width="260"></center>
+								</div>
+								<h2><center>Thank you for your contact</center></h2>
+								<p><center>I will return as soon as possible</center></p>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
