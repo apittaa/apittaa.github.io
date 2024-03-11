@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Arthur Pitta | Data Analyst</title>
+		<title>Arthur Pitta | Data Engineer</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -60,6 +60,91 @@
 								<p>Driven by my passion for continuous learning, I approach my role with an educational vocation. I am committed to expanding my knowledge base while assisting those interested in embarking on a programming journey. To this end, I've created an Instagram profile with the goal of imparting knowledge and supporting individuals in their quest to become proficient programmers.</p>
 							</article>
 
+						<!-- Esports Earnings Pipeline -->
+							<article id="work">
+								<h2 class="major">Esports Earnings Data Pipeline</h2>
+								<a href="#esports-earnings-pipeline"><span class="image main"><img src="images/esports_earnings_pipeline.png" alt="" /></span></a>
+								<p>End-to-end batch data pipeline on Esports Earnings Data.</p>
+								<a class="button" href="#esports-earnings-pipeline">More</a>
+							</article>	
+		
+							<article id="esports-earnings-pipeline">
+								<span class="image main"><img src="images/esports_earnings_pipeline.png" alt="" /></span>
+								<h3>OVERVIEW</h3>
+								<p>The goal of this project is to build an end-to-end batch data pipeline on Esports Earnings Data available at <a href="https://www.esportsearnings.com/" target="_blank">Esports Earnings</a>. In addition, perform ELT (Extract Load Transform) monthly in order to analyze the esports earnings patterns from historical data to till date..</p>
+								<h3>Problem Statement</h3>
+								<h4>Data</h4>
+								<p>The Data selected for this project is the Esports Earnings obtained from <a href="https://www.esportsearnings.com/" target="_blank">Esports Earnings</a>. This data includes esports earnings filed with the Esports Earnings community-driven competitive gaming resource based on freely available public information. The accuracy of this website is dependent on user contributions. Data since 1998. The Data is extracted via Esports Earnings API.</p>
+								<h4>Proposed Solution</h4>
+								<p>This project aims at extracting this data from the source via API and building a BATCH ELT which will be scheduled to run monthly and update the connected Dashboard for monthly Analytics & Reporting.</p>
+								<h3>Data Pipeline Overview</h3>
+								<p>This is a Batch Pipeline which will perform ELT on the 1st of every month at 07:00 am.</p>
+								<p>The ELT steps include:</p>
+								<ul>
+									<li><b>Extract</b> dataset from Esports Earnings via API and load the data into the Datalake</li>
+									<li><b>Clean</b> data and load the data into Datalake</li>
+									<li><b>Load</b> the data from Datalake into external tables in the Datawarehouse</li>
+									<li><b>Transform</b> the data in the Datawarehouse</li>
+									<li><b>Visualize</b> the data by creating a Dashboard</li>
+								</ul>
+								<h3>Data Pipeline with Medallion Architecture</h3>
+								<ul>
+									<li><b>Bronze layer:</b> raw data - parquet format</li>
+									<li><b>Silver layer:</b> cleansed and conformed data - delta format</li>
+									<li><b>Gold layer:</b> curated business-level tables - delta format</li>
+								</ul>
+								<h3>Techonologies</h3>
+								<ul>
+									<li><b>Cloud:</b> GCP</li>
+									<li><b>Infrastructure as code (IaC):</b> Terraform</li>
+									<li><b>Workflow orchestration:</b> Prefect</li>
+									<li><b>Containerization:</b> Docker</li>
+									<li><b>Data Warehouse:</b> BigQuery</li>
+									<li><b>Batch processing:</b> PySpark</li>
+									<li><b>Data Transformation:</b> dbt-core</li>
+									<li><b>DataViz:</b> Looker Studio</li>
+									<li><b>Virtual Environment:</b> Anaconda</li>
+									<li><b>CICD</b> Git</li>
+								</ul>
+								<h3>Architecture</h3>
+								<span class="image main"><img src="images/esports_earnings_pipeline.png" alt="" /></span>
+								<h3>ETL Steps</h3>
+								<p>Steps in the ELT are as follows:</p>
+								<ol>
+									<li>A Project is created on <b>GCP</b> </li>
+									<li>Esports Earnings API key is obtained by creating an account on <a href="https://www.esportsearnings.com/dev" target="_blank">Esports Earnings</a>, which will be used to extract the data from the source.</li>
+									<li>Infrastructure for the Project is created using <b>Terraform</b> which creates the following:</li>
+									<ul>
+										<li><b>Datalake:</b> Google Cloud Storage Bucket where the raw and cleaned data will be stored</li>
+										<li><b>Data Warehouse:</b> Three Datasets on BigQuery namely "esports_bronze", "esports_silver" and "esports_gold" are created in order to store the tables/views during different stages of ELT</li>
+										<li><b>Artifact Registry:</b> A place to manage the container (Docker) images</li>
+									</ul>
+									<li>Prefect Cloud API is obtained by creating an account on Prefect Cloud</li>
+									<li>The Pipeline for ELT is created on the Docker Image and is scheduled for monthly execution. It is orchestrated via ***Prefect Cloud***; which does the following tasks</li>
+									<ul>
+										<li>Extracts raw data from source via Esports Earnings Data API</li>
+										<li>Loads raw data as parquet files to GCS Bucket</li>
+										<li>Cleans the raw data using PySpark</li>
+										<li>Loads the cleaned data as delta files to GCS</li>
+										<li>Creates External table in the Datasets in BigQuery by pulling data from GCS</li>
+										<li>Transforms Data from BigQuery using dbt-core and creates the following in the dev/prod Dataset (along with Tests and Documentation)</li>
+										<ul>
+											<li>The views "stg_esports_tournaments" and "stg_esports_games_awarding_prize_money"</li>
+											<li>Fact tables "fact_esports_teams_tournaments" and "fact_esports_individuals_tournaments"</li>
+										</ul>
+									</ul>
+									<li>Transformed Data from BigQuery is used for Reporting and Visualization using Looker Studio to produce Dashboards</li>
+								</ol>
+								<h3>Dashboard</h3>
+								<iframe class="analysis_iframe" title="esports-earnings-report" src="https://lookerstudio.google.com/s/o6gIuZVxBXw" frameborder="0" allowFullScreen="true"></iframe>
+								<h3>Conclusion</h3>
+								<p>Through this project we were able to successfully build a ELT pipeline end to end which is scheduled to run monthly. And as a result we have a monthly updated Esports Earnings which can be visualized via the Dashboard on Looker Studio. This helps us get some useful insights on the latest esports trends and patterns.</p>
+								<h6>The dashboard can be viewed on my Looker Studio page:</h6>
+								<p><a href="https://lookerstudio.google.com/s/tGQaUxF6-9U" target="_blank">Esports Earnings Report</a></p>
+								<h6>The full project can be viewed on my GitHub:</h6>
+								<p><a href="https://github.com/DevPitta/esports-earnings-pipeline"  target="_blank">Esports Earnings Pipeline</a></p>	
+							</article>
+						
 						<!-- Stock Comparison Analysis -->
 							<article id="work">
 								<h2 class="major">PYTHON, SQL, POWER BI - <br> Stock Comparison</h2>
@@ -74,7 +159,7 @@
 								<p>Fundamental analysis involves a thorough examination of a business's fundamental financial aspects to determine its financial condition and the intrinsic value of its stock. This analysis includes assessing the business model, financial statements, profit margin, and other key indicators. Unlike relying solely on the stock price, fundamental analysts believe that additional information from economic, industry, and company analysis is necessary to accurately evaluate a stock. By comparing the fair value of a stock to its current market price, analysts expect the market price to eventually align with the fair value. They take advantage of perceived price discrepancies to profit from stock price movements. If a stock's market price is higher than its fair value, it is considered overvalued and a sell recommendation may be made. Conversely, if the market price is lower than the fair value, the stock is seen as undervalued, indicating a potential increase in price and a favorable buying opportunity.</p>
 								<p>This analysis was made using the following tools: Python, SQL and Power BI. To pull the data from the web, I used the Python library called <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>. The data was stored in a SQL database (MySQL) and then imported into Power BI.</p>
 								<h3>Dashboard</h3>
-								<iframe class="analysis_iframe" title="stock_comparison_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNjBkNWE1YTktOWVhOC00OTY4LWIwNzUtOTYwYjhkY2MzNzQyIiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>	
+								<iframe class="analysis_iframe" title="stock_comparison_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNDljZTdlMWYtYjA4My00NTFkLTk4YTEtOGM0Mjk5MDViZGYxIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" frameborder="0" allowFullScreen="true"></iframe>	
 								<h3>Top 5 Fundamental Indicators</h3>
 								<h4>1 Price-to-Earnings Ratio (P/E Ratio)</h4>
 								<p>The P/E ratio compares a company's stock price to its earnings per share (EPS). It helps determine if a stock is overvalued or undervalued relative to its earnings. A lower P/E ratio may indicate an undervalued stock, while a higher P/E ratio may suggest an overvalued stock.</p>
@@ -89,7 +174,7 @@
 								<h3>Conclusion</h3>
 								<p>Value investing is not reliant on a single stock metric to determine if a stock is considered a value investment. The core principle of value investing is centered around acquiring shares of high-quality companies at favorable prices and holding onto them for the long term. To achieve this, many value investors employ a combination of multiple ratios to gain a comprehensive understanding of a company's financial, earnings, and stock valuation. By considering various factors, they aim to form a more holistic assessment of a stock's value.</p>
 								<h6>The dashboard can be viewed on my Power BI page:</h6>
-								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNjBkNWE1YTktOWVhOC00OTY4LWIwNzUtOTYwYjhkY2MzNzQyIiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9&pageName=ReportSection" target="_blank">Stock Comparison Dashboard</a></p>
+								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNDljZTdlMWYtYjA4My00NTFkLTk4YTEtOGM0Mjk5MDViZGYxIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" target="_blank">Stock Comparison Dashboard</a></p>
 								<h6>The full project can be viewed on my GitHub:</h6>
 								<p><a href="https://github.com/DevPitta/data_analysis/blob/main/stock_comparison/stock_comp.ipynb"  target="_blank">Stock Comparison Analysis</a></p>	
 							</article>
@@ -190,7 +275,7 @@
 								<p>The tech industry is one of the most dynamic industries in the world. It is constantly evolving and changing, and this is reflected in the number of layoffs that occur in the industry.</p>
 								<p>In this project, I will analyze the number of layoffs that occurred in the tech industry in the last 3 years. The data used in this analysis is from <a href="https://www.kaggle.com/datasets/swaptr/layoffs-2022" target="_blank">Layoffs.fyi</a>, which is a website that collects information about layoffs in the tech industry. The data is available in csv format and can be downloaded from <a href="https://www.kaggle.com/datasets/swaptr/layoffs-2022" target="_blank">Kaggle</a>.</p>
 								<h3>Dashboard</h3>
-								<iframe class="analysis_iframe" title="tech_layoffs_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNTA2MDZmMTQtMjY1MC00MTUxLWE1NjEtYTViMzZjNzViMTQ4IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9" frameborder="0" allowFullScreen="true"></iframe>
+								<iframe class="analysis_iframe" title="tech_layoffs_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNDEwYzEzZGItN2E1Ni00ZTllLThlZGUtN2JlZmI1ODZjZTNlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" frameborder="0" allowFullScreen="true"></iframe>
 								<h3>2 Key insights:</h3>
 									<ul>
 										<li>Layoffs were higher in 2020, then dropped in 2021 and skyrocketed in 2022 and 2023.</li>
@@ -208,7 +293,7 @@
 										<li>Ingrained mentality that layoffs increase profitability.</li>
 									</ul>
 								<h6>The dashboard can be viewed on my Power BI page:</h6>
-								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNTA2MDZmMTQtMjY1MC00MTUxLWE1NjEtYTViMzZjNzViMTQ4IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9" target="_blank">Tech Layoffs - Data Analysis</a></p>
+								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNDEwYzEzZGItN2E1Ni00ZTllLThlZGUtN2JlZmI1ODZjZTNlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" target="_blank">Tech Layoffs - Data Analysis</a></p>
 							</article>
 
 						<!-- Covid-19 Analysis -->
@@ -228,9 +313,9 @@
 								<p>Novel coronavirus (nCoV) is a new strain of coronavirus that had previously been identified in humans. Known as 2019-nCoV or COVID-19, it was only detected after an outbreak was reported in Wuhan, China, in December 2019.</p>
 								<p>The data used in this analysis is from <a href="https://github.com/owid/covid-19-data/blob/master/public/data/README.md" target="_blank">Our World in Data</a>, which is a scientific online publication that focuses on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.</p>
 								<h3>Dashboard</h3>
-								<iframe class="analysis_iframe" title="COVID19_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiN2Q0MDQ3M2QtNmU1ZS00MTE1LWFkMzgtZGIwZDZjMjk5MWY5IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+								<iframe class="analysis_iframe" title="COVID19_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiYWVmNjU1OTktNTM0Mi00ZWRkLWFlYWEtYjFhMjI4ZmNjZThlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" frameborder="0" allowFullScreen="true"></iframe>
 								<h6>The dashboard can be viewed on my Power BI page:</h6>
-								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNTA2MDZmMTQtMjY1MC00MTUxLWE1NjEtYTViMzZjNzViMTQ4IiwidCI6IjQzZGJiYTI2LTg4MTctNDIxMS04N2I0LWU0NzIyOWJmOTFhZSJ9" target="_blank">Covid-19 - Data Analysis</a></p>																								
+								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiYWVmNjU1OTktNTM0Mi00ZWRkLWFlYWEtYjFhMjI4ZmNjZThlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" target="_blank">Covid-19 - Data Analysis</a></p>																								
 							</article>
 
 						<!-- About -->
