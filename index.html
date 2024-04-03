@@ -25,8 +25,8 @@
 						<div class="content">
 							<div class="inner">
 								<h1>ARTHUR PITTA</h1>
-								<h3>Data Engineer | Data Analyst | Business Intelligence Analyst</h3>
-								<p>Python | SQL | GCP | Docker | Prefect | dbt | Excel/Google Sheets | Power BI</p>
+								<h3>Data Engineer | Data Analyst</h3>
+								<p>Python | SQL | GCP | AWS | Docker | Prefect | Airflow | dbt | Power BI</p>
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/pittaa/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 									<li><a href="https://www.instagram.com/arthurpython_/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -56,10 +56,90 @@
 								<span class="image main"><img src="images/intro.jpg" alt=""/></span>
 								<p>Data Engineer with educational vocation.</p>
 								<p>As an accomplished Business Intelligence Analyst with a strong educational drive, I've accumulated a wealth of experience in the industry. I worked as a contractor for Nutracap Labs, where my contributions played a key role in optimizing data management protocols, resulting in tangible improvements and significant cost savings for the organization. I played a key role centered around promoting a DevOps mindset and instilling a culture of data-driven decision-making. Key aspects of my work involve developing and maintaining our company's data warehouse on Bigquery, optimizing processes with a data-centric approach, and creating and managing insightful reports and dashboards. Additionally, I'm responsible for designing and maintaining data ingestion pipelines, enabling our organization to harness the full potential of data.As an accomplished Business Intelligence Analyst with a strong educational drive, I've accumulated a wealth of experience in the industry. I worked as a contractor for Nutracap Labs, where my contributions played a key role in optimizing data management protocols, resulting in tangible improvements and significant cost savings for the organization. I played a key role centered around promoting a DevOps mindset and instilling a culture of data-driven decision-making. Key aspects of my work involve developing and maintaining our company's data warehouse on Bigquery, optimizing processes with a data-centric approach, and creating and managing insightful reports and dashboards. Additionally, I'm responsible for designing and maintaining data ingestion pipelines, enabling our organization to harness the full potential of data.</p>
-								<p>My skills include Big Data Analysis, SQL, Google Apps Script, Python, JavaScript, enabling me to excel in this dynamic field. Additionally, I possess a versatile skill set encompassing Django, MySQL, PostgreSQL, Heroku, HTML + CSS, and Bootstrap.</p>
+								<p>My skills include Big Data Analysis, SQL, Google Apps Script, Python, JavaScript, enabling me to excel in this dynamic field. Additionally, I possess a versatile skill set encompassing AWS, Prefect, Airflow, dbt, Django, MySQL, PostgreSQL, Heroku, HTML + CSS, and Bootstrap.</p>
 								<p>Driven by my passion for continuous learning, I approach my role with an educational vocation. I am committed to expanding my knowledge base while assisting those interested in embarking on a programming journey. To this end, I've created an Instagram profile with the goal of imparting knowledge and supporting individuals in their quest to become proficient programmers.</p>
 							</article>
 
+						<!-- Magic: The Gathering Pipeline -->
+							<article id="work">
+								<h2 class="major">Magic: The Gathering - <br> Data Pipeline</h2>
+								<a href="#esports-earnings-pipeline"><span class="image main"><img src="images/magic_the_gathering_pipeline.png" alt="" /></span></a>
+								<p>End-to-end batch data pipeline on Magic: The Gathering.</p>
+								<a class="button" href="#esports-earnings-pipeline">More</a>
+							</article>	
+		
+							<article id="esports-earnings-pipeline">
+								<span class="image main"><img src="images/magic_the_gathering.png" alt="" /></span>
+								<h3>OVERVIEW</h3>
+								<p>Magic: The Gathering (colloquially known as Magic or MTG) is a tabletop and digital collectible card game created by Richard Garfield. Released in 1993 by Wizards of the Coast, Magic was the first trading card game and had approximately fifty million players as of February 2023. Over twenty billion Magic cards were produced in the period from 2008 to 2016, during which time it grew in popularity. As of the 2022 fiscal year, Magic generates over $1 billion in revenue annually - <a href="https://en.wikipedia.org/wiki/Magic:_The_Gathering" target="_blank">Wikipedia</a></p>
+								<p>The goal of this project is to build an end-to-end batch data pipeline on Magic: The Gathering Data available at <a href="https://scryfall.com/" target="_blank">Scyfrall</a>. In addition, perform ELT (Extract Load Transform) daily in order to analyze the cards information availabe from historical data to till date.</p>
+								<h3>Problem Statement</h3>
+								<h4>Data</h4>
+								<p>The Data selected for this project is the Magic: The Gathering obtained from <a href="https://scryfall.com/" target="_blank">Scyfrall</a>. This data includes the latest cards information available. Data since 1993. The Data is extracted via Scryfall API.</p>
+								<h4>Proposed Solution</h4>
+								<p>This project aims at extracting this data from the source via API and building a BATCH ELT which will be scheduled to run daily and update the connected Dashboard for daily Analytics & Reporting.</p>
+								<h3>Data Pipeline Overview</h3>
+								<p>This is a Batch Pipeline which will perform ELT on the every day at 09:00 am.</p>
+								<p>The ELT steps include:</p>
+								<ul>
+									<li><b>Extract</b> dataset from Scryfall via API and load the data into the Datalake</li>
+									<li><b>Clean</b> data and load the data into Datalake</li>
+									<li><b>Load</b> the data from Datalake into external tables in the Data Warehouse</li>
+									<li><b>Transform</b> the data in the Data Warehouse</li>
+									<li><b>Visualize</b> the data by creating a Dashboard</li>
+								</ul>
+								<h3>Data Pipeline Architecture</h3>
+								<ul>
+									<li><b>RAW:</b> where the raw data is placed as soon as it is collected</li>
+									<li><b>BRONZE:</b> data treated and ready to be consumed</li>
+									<li><b>SILVER:</b> data processed and can be consumed easily</li>
+									<li><b>GOLD:</b> data made available from analyzes and models, which can be consumed by BI or DataViz tools</li>
+								</ul>
+								<h3>Techonologies</h3>
+								<ul>
+									<li><b>Cloud:</b> AWS</li>
+									<li><b>Infrastructure as code (IaC):</b> Terraform</li>
+									<li><b>Workflow orchestration:</b> Astronomer + Airflow</li>
+									<li><b>Data Warehouse:</b> MotherDuck</li>
+									<li><b>Batch processing:</b> DuckDb</li>
+									<li><b>Data Transformation:</b> dbt-core</li>
+									<li><b>DataViz:</b> Preset</li>
+									<li><b>Virtual Environment:</b> Poetry</li>
+									<li><b>CICD</b> Git</li>
+								</ul>
+								<h3>Architecture</h3>
+								<span class="image main"><img src="images/magic_the_gathering_pipeline.png" alt="" /></span>
+								<h3>ETL Steps</h3>
+								<p>Steps in the ELT are as follows:</p>
+								<ol>
+									<li>A Project is created on <b>GitHub</b> </li>
+									<li>Infrastructure for the Project is created using <b>Terraform</b> which creates the following:</li>
+									<ul>
+										<li><b>Datalake:</b> <b>S3 Bucket</b> where the raw and cleaned data will be stored</li>
+									</ul>
+									<li>The Pipeline for ELT is created and is scheduled for daily execution. It is orchestrated via <b>Astronomer + Airflow</b>, which does the following tasks:</li>
+									<ul>
+										<li>Extracts raw data from source via <b>Scryfall API</b></li>
+										<li>Loads raw data as json file to <b>S3 Bucket</b></li>
+										<li>Cleans the raw data using <b>DuckDb</b></li>
+										<li>Loads the cleaned data as parquet files to <b>S3</b></li>
+										<li>Creates External table in the Datasets in <b>MotherDuck</b> by pulling data from <b>S3</b>.</li>
+										<li>ransforms Data from <b>S3</b> using <b>dbt-core</b> and creates the following in the dev/prod Dataset (along with Tests and Documentation)</li>
+										<ul>
+											<li>The view: "stg_cards"</li>
+											<li>The fact table: "fact_cards"</li>
+										</ul>
+									</ul>
+									<li>Transformed Data from <b>MotherDuck</b> is used for Reporting and Visualization using <b>Preset</b> to produce Dashboards</li>
+								</ol>
+								<h3>Dashboard</h3>
+								<span class="image main"><img src="images/magic_the_gathering_dashboard.png" alt="" /></span>
+								<h3>Conclusion</h3>
+								<p>Through this project we were able to successfully build a ELT pipeline end to end which is scheduled to run daily. And as a result we have a daily updated MTG cards which can be visualized via the Dashboard on Preset. This helps us get some useful insights on the latest cards information.</p>
+								<h6>The full project can be viewed on my GitHub:</h6>
+								<p><a href="https://github.com/DevPitta/magic-the-gathering-pipeline"  target="_blank">Magic: The Gathering Pipeline</a></p>	
+							</article>
+						
 						<!-- Esports Earnings Pipeline -->
 							<article id="work">
 								<h2 class="major">Esports Earnings - <br> Data Pipeline</h2>
@@ -83,8 +163,8 @@
 								<ul>
 									<li><b>Extract</b> dataset from Esports Earnings via API and load the data into the Datalake</li>
 									<li><b>Clean</b> data and load the data into Datalake</li>
-									<li><b>Load</b> the data from Datalake into external tables in the Datawarehouse</li>
-									<li><b>Transform</b> the data in the Datawarehouse</li>
+									<li><b>Load</b> the data from Datalake into external tables in the Data Warehouse</li>
+									<li><b>Transform</b> the data in the Data Warehouse</li>
 									<li><b>Visualize</b> the data by creating a Dashboard</li>
 								</ul>
 								<h3>Data Pipeline with Medallion Architecture</h3>
