@@ -284,6 +284,70 @@
 								<h6>The full project can be viewed on my GitHub:</h6>
 								<p><a href="https://github.com/apittaa/esports-earnings-pipeline"  target="_blank">Esports Earnings Pipeline</a></p>	
 							</article>
+
+						<!-- Esports Earnings Pipeline -->
+						<article id="work">
+							<h2 class="major">Pokémon - <br> Data Pipeline</h2>
+							<a href="#pokemon-pipeline"><span class="image main"><img src="images/pokeapi_architecture.png" alt="" /></span></a>
+							<p>End-to-end batch data pipeline on Pokémon Data.</p>
+							<a class="button" href="#pokemon-pipeline">More</a>
+						</article>	
+	
+						<article id="pokemon-pipeline">
+							<span class="image main"><img src="images/pokeapi_pipeline.png" alt="" /></span>
+							<h3>OVERVIEW</h3>
+							<p>The PokéAPI Data Pipeline is a project that aims to create a data pipeline to extract, transform, and load data from the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a> into a datalake.</p>
+							<h3>About PokéAPI</h3>
+							<p>The PokéAPI is a RESTful API that provides data about the Pokémon games. The API provides data about the Pokémon species, abilities, moves, types, and more.</p>
+							<p>Pokemon is a media franchise created by Satoshi Tajiri and Ken Sugimori and is managed by The Pokémon Company, a collaboration between Nintendo, Game Freak, and Creatures. The franchise was created by Satoshi Tajiri and Ken Sugimori and is centered on fictional creatures called "Pokémon", which humans, known as Pokémon Trainers, catch and train to battle each other for sport.</p>
+							<p>The goal of the PokéAPI Data Pipeline project is to create a datalake with the data provided by the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.</p>
+							<h3>Technologies</h3>
+							<p>The PokéAPI Data Pipeline project uses the following technologies:</p>
+							<ul>
+								<li><a href="https://www.python.org/" target="_blank">Python</a></li>
+								<li><a href="https://www.duckdb.org/" target="_blank">DuckDB</a></li>
+								<li><a href="https://min.io/" target="_blank">MinIO</a></li>
+								<li><a href="https://www.docker.com/" target="_blank">Docker</a></li>
+								<li><a href="https://docs.docker.com/compose/" target="_blank">Docker Compose</a></li>
+								<li><a href="https://code.visualstudio.com/docs/remote/containers" target="_blank">Dev Container</a></li>
+								<li><a href="https://python-poetry.org/" target="_blank">Poetry</a></li>
+							</ul>
+							<h3>Problem Statement</h3>
+							<h4>Data Extraction</h4>
+							<p>The PokéAPI provides a RESTful API to access the Pokémon data. The API provides data about the Pokémon species, abilities, moves, types, and more. The data is provided in JSON format.</p>
+							<p>The goal of the data extraction phase is to extract the data from the PokéAPI and store it in a raw format.</p>
+							<h4>Data Transformation</h4>
+							<p>The data extracted from the PokéAPI is stored in the data lake in a raw format (Raw Bucket) in JSON format.</p>
+							<p>The goal of the data transformation phase is to transform the json data into a parquet format and store it in a bronze bucket. The parquet format is a columnar storage format that is optimized for reading and writing data.</p>
+							<h4>Data Loading</h4>
+							<p>The data transformed in the data transformation phase is stored in the data lake in a bronze format (Bronze Bucket) in parquet format.</p>
+							<p>The goal of the data loading phase is to load the data from the bronze bucket into a DuckDB database.</p>
+							<h4>Proposed Solution</h4>
+							<p>The proposed solution is to create a data pipeline that extracts the data from the PokéAPI, transforms the data into a parquet format, loads the data into a DuckDB database, and analyzes the data using SQL queries.</p>
+							<h3>Data Pipeline Overview</h3>
+							<h4>Architecture</h4>
+							<p>The architecture of the data pipeline is as follows:</p>
+							<span class="image main"><img src="images/pokeapi_architecture.png" alt="" /></span>
+							<p>The data pipeline consists of the following components:</p>
+							<ol>
+								<li><b>Source: </b>The Source is the PokéAPI that provides the data about the Pokémon species, abilities, moves, types, and more. The data is provided in JSON format.</li>
+								<li><b>Raw Bucket: </b>The Raw Bucket is a storage bucket that stores the raw data extracted from the PokéAPI in JSON format.</li>
+								<li><b>Bronze Bucket: </b>The Bronze Bucket is a storage bucket that stores the transformed data in parquet format.</li>
+							</ol>
+							<h4>Data Pipeline</h4>
+							<p>The data pipeline consists of the following steps:</p>
+							<ol>
+								<li>Extract the data from the PokéAPI and store it in a raw format (JSON) in the Raw Bucket.</li>
+								<li>Transform the data into a parquet format and store it in a parquet format in the Bronze Bucket.</li>
+								<li>Load the data into a DuckDB database</li>
+								<li>Analyze the data using SQL queries</li>
+							</ol>
+							<p>The data pipeline is implemented using Python scripts and Docker containers.</p>
+							<h3>Conclusion</h3>
+							<p>The PokéAPI Data Pipeline project is a project that aims to create a data pipeline to extract, transform, and load data from the PokéAPI into a datalake. The project uses Python, DuckDB, MinIO, Docker, Docker Compose, Dev Container, and Poetry.</p>
+							<h6>The full project can be viewed on my GitHub:</h6>
+							<p><a href="https://github.com/apittaa/devcontainer-apoenastack/tree/DEV"  target="_blank">Pokémon Data Pipeline</a></p>	
+						</article>	
 						
 						<!-- Stock Comparison Analysis -->
 							<article id="work">
