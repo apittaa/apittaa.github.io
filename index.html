@@ -27,7 +27,7 @@
 							<div class="inner">
 								<h1>ARTHUR PITTA</h1>
 								<h3>Data Engineer</h3>
-								<p>Python | SQL | GCP | AWS | Docker | Prefect | Airflow | dbt | BigQuery | Snowflake</p>
+								<p>Python | SQL | Spark | GCP | AWS | Docker | Airflow | dbt | BigQuery | Snowflake</p>
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/pittaa/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 									<li><a href="https://www.instagram.com/oarthurpitta/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -83,7 +83,71 @@
 								</ul>
 							</article>
 
-						<!-- Modern Data Stack: Architecture -->
+						<!-- Pokémon Delta Lakehouse -->
+						<article id="work">
+							<h2 class="major">Pokémon - <br>Delta Lakehouse</h2>
+							<a href="#pokemon-pipeline"><span class="image main"><img src="images/pokemon_deltalake.png" alt="" /></span></a>
+							<p>End-to-end batch data pipeline on Pokémon Data with Delta Lakehouse Architecture.</p>
+							<a class="button" href="#pokemon-pipeline">More</a>
+						</article>	
+	
+						<article id="pokemon-pipeline">
+							<span class="image main"><img src="images/pokeapi.png" alt="" /></span>
+							<h3>OVERVIEW</h3>
+							<p>The PokéAPI Data Pipeline project is a project that aims to create a data pipeline to extract, load, and transform data from the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a> into a Delta Lakehouse. The project uses Python, DuckDB, MinIO, Docker, Docker Compose, Dev Container, and Poetry.</p>
+							<h3>About PokéAPI</h3>
+							<p>The PokéAPI is a RESTful API that provides data about the Pokémon games. The API provides data about the Pokémon species, abilities, moves, types, and more.</p>
+							<p>Pokemon is a media franchise created by Satoshi Tajiri and Ken Sugimori and is managed by The Pokémon Company, a collaboration between Nintendo, Game Freak, and Creatures. The franchise was created by Satoshi Tajiri and Ken Sugimori and is centered on fictional creatures called "Pokémon", which humans, known as Pokémon Trainers, catch and train to battle each other for sport.</p>
+							<p>The goal of the PokéAPI Data Pipeline project is to create a Delta Lakehouse with the data provided by the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.</p>
+							<h3>Technologies</h3>
+							<p>The PokéAPI Data Pipeline project uses the following technologies:</p>
+							<ul>
+								<li><b>Ingestion: </b><a href="https://www.python.org/" target="_blank">Python</a></li>
+								<li><b>Processing: </b><a href="https://www.duckdb.org/" target="_blank">DuckDB</a></li>
+								<li><b>Storage: </b><a href="https://min.io/" target="_blank">MinIO</a></li>
+								<li><b>Orchestration: </b><a href="https://dagster.io/" target="_blank">Dagster</a></li>
+								<li><b>Visualization: </b><a href="https://superset.apache.org/" target="_blank">Apache Superset</a></li>
+								<li><b>Data format: </b><a href="https://delta.io/" target="_blank">Delta</a></li>
+								<li><b>Infrastructure: </b><a href="https://www.docker.com/" target="_blank">Docker</a></li>, <a href="https://docs.docker.com/compose/" target="_blank">Docker Compose</a>, <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank">Dev Container</a>
+								<li><b>Tools: </b><a href="https://python-poetry.org/" target="_blank">Poetry</a></li>, </b><a href="https://pre-commit.com/" target="_blank">Pre-commmit</a></li>, </b><a href="https://git-scm.com/" target="_blank">Git</a></li>, </b><a href="https://github.com/" target="_blank">GitHub</a></li>
+							</ul>
+							<h3>Problem Statement</h3>
+							<h4>Data</h4>
+							<p>The data selected for the project is the Pokémon provided by the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>. The data includes the pokémons details for all the pokémons available in the API.</p>
+							<p>The data descriptions is available in the <a href="https://pokeapi.co/docs/v2" target="_blank">PokéAPI Documentation</a>.</p>
+							<h4>Data Pipeline Overview</h4>
+							<p>This is a batch data pipeline that extracts data from the PokéAPI, transforms the data into a delta format and loads the data into a Delta Lakehouse.</p>
+							<p>The ELT steps are as follows:</p>
+							<ol>
+								<li><b>Extract: </b>Extract the data from the PokéAPI and store it in a raw format in the staging area.</li>
+								<li><b>Load: </b>Load the data into a staging area.</li>
+								<li><b>Transform: </b>Transform the data into a delta format it into the Delta Lakehouse.</li>
+							</ol>
+							<h4>Medallion Architecture</h4>
+							<p>The Medallion Architecture is a data architecture that uses the following components:</p>
+							<ol>
+								<li><b>Raw: </b>The Raw layer is the raw data layer that stores the raw data extracted from the source.</li>
+								<li><b>Bronze: </b>The Bronze layer is the transformed data layer that stores the transformed data in a delta format.</li>
+								<li><b>Silver: </b>The Silver layer is the curated data layer that stores the curated data in a delta format.</li>
+								<li><b>Gold: </b>The Gold layer is the business data layer that stores the business data in a delta format.</li>
+							</ol>
+							<h4>Pipeline Architecture</h4>
+							<p>The architecture of the data pipeline is as follows:</p>
+							<span class="image main"><img src="images/pokemon_deltalake.png" alt="" /></span>
+							<h3>Results</h3>
+							<h4>Delta Lakehouse</h4>
+							<span class="image main"><img src="images/pokemon_minio.png" alt="" /></span>
+							<h4>Orchestration</h4>
+							<span class="image main"><img src="images/pokemon_dagster.png" alt="" /></span>
+							<h4>Data Visualization</h4>
+							<span class="image main"><img src="images/pokemon_superset.png" alt="" /></span>
+							<h3>Conclusion</h3>
+							<p>The PokéAPI Data Pipeline project is a project that aims to create a data pipeline to extract, load, and transform data from the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a> into a Delta Lakehouse. The project uses Python, DuckDB, MinIO, Docker, Docker Compose, Dev Container, and Poetry.</p>
+							<h6>The full project can be viewed on my GitHub:</h6>
+							<p><a href="https://github.com/apittaa/pokemon-deltalake"  target="_blank">Pokémon - Delta Lakehouse</a></p>	
+						</article>
+						
+							<!-- Modern Data Stack: Architecture -->
 						<article id="work">
 							<h2 class="major">Modern Data Stack - <br> Architecture</h2>
 							<a href="#modern-data-stack-architecture"><span class="image main"><img src="images/mds_arch.png" alt="" /></span></a>
@@ -283,244 +347,7 @@
 								<p><a href="https://lookerstudio.google.com/s/tGQaUxF6-9U" target="_blank">Esports Earnings Report</a></p>
 								<h6>The full project can be viewed on my GitHub:</h6>
 								<p><a href="https://github.com/apittaa/esports-earnings-pipeline"  target="_blank">Esports Earnings Pipeline</a></p>	
-							</article>
-
-						<!-- Esports Earnings Pipeline -->
-						<article id="work">
-							<h2 class="major">Pokémon - <br> Data Pipeline</h2>
-							<a href="#pokemon-pipeline"><span class="image main"><img src="images/pokeapi_architecture.png" alt="" /></span></a>
-							<p>End-to-end batch data pipeline on Pokémon Data.</p>
-							<a class="button" href="#pokemon-pipeline">More</a>
-						</article>	
-	
-						<article id="pokemon-pipeline">
-							<span class="image main"><img src="images/pokeapi_pipeline.png" alt="" /></span>
-							<h3>OVERVIEW</h3>
-							<p>The PokéAPI Data Pipeline is a project that aims to create a data pipeline to extract, transform, and load data from the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a> into a datalake.</p>
-							<h3>About PokéAPI</h3>
-							<p>The PokéAPI is a RESTful API that provides data about the Pokémon games. The API provides data about the Pokémon species, abilities, moves, types, and more.</p>
-							<p>Pokemon is a media franchise created by Satoshi Tajiri and Ken Sugimori and is managed by The Pokémon Company, a collaboration between Nintendo, Game Freak, and Creatures. The franchise was created by Satoshi Tajiri and Ken Sugimori and is centered on fictional creatures called "Pokémon", which humans, known as Pokémon Trainers, catch and train to battle each other for sport.</p>
-							<p>The goal of the PokéAPI Data Pipeline project is to create a datalake with the data provided by the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.</p>
-							<h3>Technologies</h3>
-							<p>The PokéAPI Data Pipeline project uses the following technologies:</p>
-							<ul>
-								<li><a href="https://www.python.org/" target="_blank">Python</a></li>
-								<li><a href="https://www.duckdb.org/" target="_blank">DuckDB</a></li>
-								<li><a href="https://min.io/" target="_blank">MinIO</a></li>
-								<li><a href="https://www.docker.com/" target="_blank">Docker</a></li>
-								<li><a href="https://docs.docker.com/compose/" target="_blank">Docker Compose</a></li>
-								<li><a href="https://code.visualstudio.com/docs/remote/containers" target="_blank">Dev Container</a></li>
-								<li><a href="https://python-poetry.org/" target="_blank">Poetry</a></li>
-							</ul>
-							<h3>Problem Statement</h3>
-							<h4>Data Extraction</h4>
-							<p>The PokéAPI provides a RESTful API to access the Pokémon data. The API provides data about the Pokémon species, abilities, moves, types, and more. The data is provided in JSON format.</p>
-							<p>The goal of the data extraction phase is to extract the data from the PokéAPI and store it in a raw format.</p>
-							<h4>Data Transformation</h4>
-							<p>The data extracted from the PokéAPI is stored in the data lake in a raw format (Raw Bucket) in JSON format.</p>
-							<p>The goal of the data transformation phase is to transform the json data into a parquet format and store it in a bronze bucket. The parquet format is a columnar storage format that is optimized for reading and writing data.</p>
-							<h4>Data Loading</h4>
-							<p>The data transformed in the data transformation phase is stored in the data lake in a bronze format (Bronze Bucket) in parquet format.</p>
-							<p>The goal of the data loading phase is to load the data from the bronze bucket into a DuckDB database.</p>
-							<h4>Proposed Solution</h4>
-							<p>The proposed solution is to create a data pipeline that extracts the data from the PokéAPI, transforms the data into a parquet format, loads the data into a DuckDB database, and analyzes the data using SQL queries.</p>
-							<h3>Data Pipeline Overview</h3>
-							<h4>Architecture</h4>
-							<p>The architecture of the data pipeline is as follows:</p>
-							<span class="image main"><img src="images/pokeapi_architecture.png" alt="" /></span>
-							<p>The data pipeline consists of the following components:</p>
-							<ol>
-								<li><b>Source: </b>The Source is the PokéAPI that provides the data about the Pokémon species, abilities, moves, types, and more. The data is provided in JSON format.</li>
-								<li><b>Raw Bucket: </b>The Raw Bucket is a storage bucket that stores the raw data extracted from the PokéAPI in JSON format.</li>
-								<li><b>Bronze Bucket: </b>The Bronze Bucket is a storage bucket that stores the transformed data in parquet format.</li>
-							</ol>
-							<h4>Data Pipeline</h4>
-							<p>The data pipeline consists of the following steps:</p>
-							<ol>
-								<li>Extract the data from the PokéAPI and store it in a raw format (JSON) in the Raw Bucket.</li>
-								<li>Transform the data into a parquet format and store it in a parquet format in the Bronze Bucket.</li>
-								<li>Load the data into a DuckDB database</li>
-								<li>Analyze the data using SQL queries</li>
-							</ol>
-							<p>The data pipeline is implemented using Python scripts and Docker containers.</p>
-							<h3>Conclusion</h3>
-							<p>The PokéAPI Data Pipeline project is a project that aims to create a data pipeline to extract, transform, and load data from the PokéAPI into a datalake. The project uses Python, DuckDB, MinIO, Docker, Docker Compose, Dev Container, and Poetry.</p>
-							<h6>The full project can be viewed on my GitHub:</h6>
-							<p><a href="https://github.com/apittaa/devcontainer-apoenastack/tree/DEV"  target="_blank">Pokémon Data Pipeline</a></p>	
-						</article>	
-						
-						<!-- Stock Comparison Analysis -->
-							<article id="work">
-								<h2 class="major">PYTHON, SQL, POWER BI - <br> Stock Comparison</h2>
-								<a href="#stock-comparison"><span class="image main"><img src="images/Stocks_capa.jpg" alt="" /></span></a>
-								<p>Fundamental Stock Analysis.</p>
-								<a class="button" href="#stock-comparison">More</a>
 							</article>	
-		
-							<article id="stock-comparison">
-								<span class="image main"><img src="images/Stocks_capa.jpg" alt="" /></span>
-								<h3>OVERVIEW</h3>
-								<p>Fundamental analysis involves a thorough examination of a business's fundamental financial aspects to determine its financial condition and the intrinsic value of its stock. This analysis includes assessing the business model, financial statements, profit margin, and other key indicators. Unlike relying solely on the stock price, fundamental analysts believe that additional information from economic, industry, and company analysis is necessary to accurately evaluate a stock. By comparing the fair value of a stock to its current market price, analysts expect the market price to eventually align with the fair value. They take advantage of perceived price discrepancies to profit from stock price movements. If a stock's market price is higher than its fair value, it is considered overvalued and a sell recommendation may be made. Conversely, if the market price is lower than the fair value, the stock is seen as undervalued, indicating a potential increase in price and a favorable buying opportunity.</p>
-								<p>This analysis was made using the following tools: Python, SQL and Power BI. To pull the data from the web, I used the Python library called <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>. The data was stored in a SQL database (MySQL) and then imported into Power BI.</p>
-								<h3>Dashboard</h3>
-								<iframe class="analysis_iframe" title="stock_comparison_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNDljZTdlMWYtYjA4My00NTFkLTk4YTEtOGM0Mjk5MDViZGYxIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" frameborder="0" allowFullScreen="true"></iframe>	
-								<h3>Top 5 Fundamental Indicators</h3>
-								<h4>1 Price-to-Earnings Ratio (P/E Ratio)</h4>
-								<p>The P/E ratio compares a company's stock price to its earnings per share (EPS). It helps determine if a stock is overvalued or undervalued relative to its earnings. A lower P/E ratio may indicate an undervalued stock, while a higher P/E ratio may suggest an overvalued stock.</p>
-								<h4>2 Price-to-Book Ratio (P/B Ratio)</h4>
-								<p>The P/B ratio compares a company's stock price to its book value per share. The book value represents the company's net assets minus its liabilities. A lower P/B ratio may indicate an undervalued stock, while a higher P/B ratio may suggest an overvalued stock.</p>
-								<h4>3 Dividend Yield</h4>
-								<p>The dividend yield represents the annual dividend payment per share divided by the stock price. It indicates the return on investment through dividends. A higher dividend yield may be favorable for income-seeking investors.</p>
-								<h4>4 Return on Equity (ROE)</h4>
-								<p>ROE measures a company's profitability by comparing its net income to its shareholders' equity. It shows how efficiently a company is utilizing its shareholders' investments. A higher ROE may indicate a more profitable and efficient company.</p>
-								<h4>5 Debt-to-Equity Ratio</h4>
-								<p>The debt-to-equity ratio compares a company's total debt to its shareholders' equity. It helps assess the company's financial leverage and risk. A lower debt-to-equity ratio may suggest a more financially stable company, while a higher ratio may indicate higher financial risk.</p>
-								<h3>Conclusion</h3>
-								<p>Value investing is not reliant on a single stock metric to determine if a stock is considered a value investment. The core principle of value investing is centered around acquiring shares of high-quality companies at favorable prices and holding onto them for the long term. To achieve this, many value investors employ a combination of multiple ratios to gain a comprehensive understanding of a company's financial, earnings, and stock valuation. By considering various factors, they aim to form a more holistic assessment of a stock's value.</p>
-								<h6>The dashboard can be viewed on my Power BI page:</h6>
-								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNDljZTdlMWYtYjA4My00NTFkLTk4YTEtOGM0Mjk5MDViZGYxIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" target="_blank">Stock Comparison Dashboard</a></p>
-								<h6>The full project can be viewed on my GitHub:</h6>
-								<p><a href="https://github.com/apittaa/data_analysis/blob/main/stock_comparison/stock_comp.ipynb"  target="_blank">Stock Comparison Analysis</a></p>	
-							</article>
-
-						<!-- Esports Analysis -->
-							<article id="work">
-								<h2 class="major">PYTHON - Esports Earnings</h2>
-								<a href="#esports"><span class="image main"><img src="images/Esports_capa.jpg" alt="" /></span></a>
-								<p>Analysis of Esports Earnings during 1998 - 2023.</p>
-								<a class="button" href="#esports">More</a>
-							</article>
-
-							
-							<article id="esports">
-								<span class="image main"><img src="images/Esports_capa.jpg" alt="" /></span>
-								<h3>1 INTRODUCTION</h3>
-								<p>I have always been passionate about video games and then esports. Then, I came across this dataset and I thought it would be interesting to explore the trends in the industry. I hope you enjoy this notebook as much as I enjoyed creating it.</p> 
-								<p> <a href="https://en.wikipedia.org/wiki/Esports" target="_blank">Esports</a> (also known as electronic sports, e-sports, or eSports) is a form of competition using video games. Most commonly, esports takes the form of organized, multiplayer video game competitions, particularly between professional players, individually or as teams. Esports often takes the form of organized, multiplayer video game competitions, particularly between professional players, individually or as teams. Although organized competitions have long been a part of video game culture, these were largely between amateurs until the late 2000s when participation by professional gamers of all ages and amateur competitors from around the world began to take place on a more regular basis. Esports is also a multi-million dollar industry with several professional players and teams earning six-figure salaries from sponsors and prize money.</p>
-								<p>This notebook will explore the trends in the industry from 1998 to 2023. The data used in this notebook is from <a href="https://www.esportsearnings.com/" target="_blank">Esports Earnings</a>. The data is available in csv format and can be downloaded from <a href="https://www.kaggle.com/datasets/rankirsh/esports-earnings" target="_blank">Kaggle</a>. The data is updated monthly and the latest data is from 2023-02-01.</p>
-								<p>This analysis was inspired by this <a href="https://www.kaggle.com/code/rankirsh/esports-earnings-analysis/report" target="_blank">notebook</a>.</p>
-								<h3>2 EXPLORATORY ANALYSIS</h3>
-								<p>In this section, the data will be explored to find trends in the Esports industry</p>
-								<H4>2.1 Biggest Games (Earnings)</H4>
-								<p>Exploring the top 10 games with the highest earnings.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/3.embed?autosize=true&link=false"></iframe>
-								<p>There are no surprise that in the top 10 games, the most popular games as Dota 2, Fortnite, CS:GO and League of Legends are present.</p>
-								<p>To go deeper into the analysis, let's see the prize evolution of the top 5 games with the highest earnings.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/5.embed?autosize=true&link=false"></iframe>
-								<p>It is possible to see that the games distribution of prize is not uniform. Dota 2 and LOL, for example, distribute the prizes in a cyclical manner, with a peak in prize money every year. CS:GO, on the other hand, is more stable, with a more linear distribution. For Fortnite and Arena of Valor, the distribution of prizes is irregular.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/7.embed?autosize=true&link=false"></iframe>
-								<p>The earnings are concentrated in few games. The top 4 games (Dota 2, Fortnite, CS:GO and League of Legends) represent almost 50% of the total earnings and about 70% of the total earnings are concentrated in the top 10 games. It is quite surprising that about a fifth of the total earnings are solely from Dota 2.</p>
-								<h4>2.2 Biggest Games (Tournaments)</h4>
-								<p>Exploring the top 10 games with the highest tournaments.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/9.embed?autosize=true&link=false"></iframe>
-								<p>There is not a surprise that Dota 2, Fortnite, CS:GO and League of Legends are in both the two top 10 lists. Something that is interesting is that the top 10 games with the highest earnings are not the same as the top 10 games with the highest number of tournaments. This is because some games have a lot of tournaments but the prize money is not that high. For example, the game 'Rocket League' has 2.8 thousand tournaments but the prize money is only $27 million. On the other hand, the game 'Dota 2' has 1.7 thousand tournaments but the prize money is $311 million.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/11.embed?autosize=true&link=false"></iframe>
-								<p>The tournament distribution between the top 4 games is similar. However, it is interesting to observe that 'Super Smash Bros. Melee' tournaments started in 2003 and only around 2014 the amount of tournaments started to increase, but the tournaments decreased around 2018 probably due to the release of 'Super Smash Bros. Ultimate' in the same year.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/13.embed?autosize=true&link=false"></iframe>
-								<p>The tournaments are less concentrated than the earnings, which reflects the fact that there are more games with a lot of tournaments but with a low prize money.</p>
-								<h4>3.3 Earnings and Tournaments Over Time</h4>
-								<p>In this section, we will explore the evolution of the earnings and tournaments over time.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/15.embed?autosize=true&link=false"></iframe>
-								<p>It is possible to see that the number of earnings increased over time. The Esports industry jumped from earnings in 2011 and 2012 and has achieved a total of $252 million in 2019.</p>
-								<p>It is interesting to observe that in 2009 due to the economic crisis and em 2020 due to the pandemic, the number of earnings decreased. Indeed the pandemic has strongly affected the esports scenario, but in 2021 and 2022 the number of earnings increased again. This demonstrates that the esports industry is resilient and is able to overcome adversities.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/17.embed?autosize=true&link=false"></iframe>
-								<p>The tournaments also increased over time. The number of tournaments started strongly increasing in 2011 and has stabilized from 2015 onwards with a mean of 5 thousand tournaments.</p>
-								<h4>3.4 Earnings and Tournaments by Month</h4>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/19.embed?autosize=true&link=false"></iframe>
-								<p>There is a clear pattern in the earnings by month. The earnings are concentrated in the months of August and October. This is probably due to the fact that the most important tournaments are held in these months.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/21.embed?autosize=true&link=false"></iframe>
-								<p>Regarding the tournaments, the beginning of the year is the less active period, with the number of tournaments increasing from March and April.</p>
-								<h4>3.5 Games that distribute prizes for the most players</h4>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/23.embed?autosize=true&link=false"></iframe>
-								<p>There is interesting to observe that the majority of the games are played in teams of 5 players (LOL, Dota 2, CS:GO) or are part of the Battle Royal genre (Fortnite, PUBG), which is a genre that is played in 100 players for each match.</p>
-								<h4>3.6 Earnings by genre</h4>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/25.embed?autosize=true&link=false"></iframe>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/27.embed?autosize=true&link=false"></iframe>
-								<p>The genre with the highest earnings as expected is the MOBA, followed by the FPS and Battle Royal. This is probably due to the fact that the this genres were projected to the esports scenario and have a lot of tournaments and prize money.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/29.embed?autosize=true&link=false"></iframe>
-								<p>Regarding the number of games in each genre, is not a surprise that Fighting, FPS and Sports are the genres with the highest number of games, once these genres are more franchise and are released more often.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/31.embed?autosize=true&link=false"></iframe>
-								<p>There is interesting to observe that the top 2 games with the highest earnings are in the MOBA and Battle Royal genres, which appears mostly after 2015. This is probably due to the fact that these genres were designed to the esports scenario.</p>
-								<h4>3.7 Game release date</h4>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/33.embed?autosize=true&link=false"></iframe>
-								<p>It is possible to observe that the Realeases had two falls, the first in the economic crisis of 2007-2008 and the other in the pandemic period.</p>
-								<iframe class="analysis_iframe_esports" frameborder="0" scrolling="no" src="//plotly.com/~DevPitta/35.embed?autosize=true&link=false"></iframe>
-								<p>It is possible to seem that is no correlation between the release date and the success of the game. The games with the highest earnings were released in different years.</p>
-								<h3>4 Conclusions</h4>
-								<p>The insights of this analysis are:</p>
-								<ul>
-									<li>The prizes are concentrated between few games, but the tournaments are more distributed.</li>
-									<li>Dota 2 is the game with the highest earnings and Starcraft II is the game with the highest number of tournaments.</li>
-									<li>The number of tournaments and earnings increased over time.</li>
-									<li>The earnings are concentrated in the months of August and October.</li>
-									<li>Tournaments are lower in january and february, and increase from March and April continuing steadily until the end of the year.</li>
-									<li>The Esports industry is mainly dominated by the MOBA and Battle Royal genres.</li>
-									<li>There is not a correlation between the release date and the success of the game.</li>
-									<li>The Economic crisis of 2007-2008 and the pandemic of 2020 affected the number of earnings and tournaments, but the industry is resilient and is able to overcome adversities.</li>
-									<li>Finally, the Esports industry is growing and is expected to continue growing in the future, with a lot of opportunities for the future. Then, it will be interesting to see how the industry will evolve in the future.</li>
-								</ul>
-								<h6>The full project can be viewed on my GitHub:</h6>
-								<p><a href="https://github.com/apittaa/data_analysis/blob/main/esports_earnings_1998_2023/esports_eranings.ipynb"  target="_blank">Esports Earnings Analysis</a></p>		
-							</article>
-							
-						<!-- Tech Layoffs Analysis -->
-							<article id="work">
-								<h2 class="major">POWER BI - Tech Layoffs</h2>
-								<a href="#tech-layoffs"><span class="image main"><img src="images/Layoffs_capa.jpg" alt="" /></span></a>
-								<p>Dynamic analysis of tech layoffs worldwide during Jan 2020 - Fev 2023.</p>
-								<a class="button" href="#tech-layoffs">More</a>
-							</article>
-
-								
-							<article id="tech-layoffs">
-								<span class="image main"><img src="images/Layoffs_capa.jpg" alt="" /></span>
-								<h3>1 INTRODUCTION</h3>
-								<p>After several news about layoffs in the technology industry, I became curious about the volume of layoffs has experienced in 2022 and 2023. Then, I decided to analyze the number of layoffs that occurred in the last 3 years to understand this scenario.</p>
-								<p>The tech industry is one of the most dynamic industries in the world. It is constantly evolving and changing, and this is reflected in the number of layoffs that occur in the industry.</p>
-								<p>In this project, I will analyze the number of layoffs that occurred in the tech industry in the last 3 years. The data used in this analysis is from <a href="https://www.kaggle.com/datasets/swaptr/layoffs-2022" target="_blank">Layoffs.fyi</a>, which is a website that collects information about layoffs in the tech industry. The data is available in csv format and can be downloaded from <a href="https://www.kaggle.com/datasets/swaptr/layoffs-2022" target="_blank">Kaggle</a>.</p>
-								<h3>Dashboard</h3>
-								<iframe class="analysis_iframe" title="tech_layoffs_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiNDEwYzEzZGItN2E1Ni00ZTllLThlZGUtN2JlZmI1ODZjZTNlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" frameborder="0" allowFullScreen="true"></iframe>
-								<h3>2 Key insights:</h3>
-									<ul>
-										<li>Layoffs were higher in 2020, then dropped in 2021 and skyrocketed in 2022 and 2023.</li>
-										<li>Consumer, retail, transportation and finance face sharp increase in layoffs.</li>
-										<li>United States had the highest number of layoffs compared to other countries.</li>
-										<li>The top 10 companies made more than 25% of total layoffs.</li>
-									</ul>
-								<h3>3 Key reasons for layoffs:</h3>
-									<ul>
-										<li>Economic uncertainty.</li>
-										<li>Decrease in e-commerce activity.</li>
-										<li>Pressure from investors.</li>
-										<li>Declining revenue.</li>
-										<li>Signs of a mature industry.</li>
-										<li>Ingrained mentality that layoffs increase profitability.</li>
-									</ul>
-								<h6>The dashboard can be viewed on my Power BI page:</h6>
-								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiNDEwYzEzZGItN2E1Ni00ZTllLThlZGUtN2JlZmI1ODZjZTNlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" target="_blank">Tech Layoffs - Data Analysis</a></p>
-							</article>
-
-						<!-- Covid-19 Analysis -->
-							<article id="work">
-								<h2 class="major">POWER BI - Covid-19</h2>
-								<a href="#covid-19"><span class="image main"><img src="images/covid-19_capa.png" alt="" /></span></a>
-								<p>Dashboard analyzing the world scenario of Covid-19 during Fev 2020 - Fev 2023.</p>
-								<a class="button" href="#covid-19">More</a>
-							</article>
-							
-							
-							<article id="covid-19">
-								<span class="image main"><img src="images/covid-19_capa.png" alt="" /></span>
-								<h3>OVERVIEW</h3>
-								<p>After the Covid-19 pandemic, I became curious about the evolution of the pandemic and how it was affecting the world. Then, I decided to analyze the evolution of the pandemic in the world.</p>
-								<p>Coronaviruses (CoV) are a broad family of viruses that can cause a variety of conditions, from the common cold to more serious illnesses such as Middle East respiratory syndrome (MERS-CoV) and respiratory syndrome. severe acute illness (SARS-CoV).</p>
-								<p>Novel coronavirus (nCoV) is a new strain of coronavirus that had previously been identified in humans. Known as 2019-nCoV or COVID-19, it was only detected after an outbreak was reported in Wuhan, China, in December 2019.</p>
-								<p>The data used in this analysis is from <a href="https://github.com/owid/covid-19-data/blob/master/public/data/README.md" target="_blank">Our World in Data</a>, which is a scientific online publication that focuses on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.</p>
-								<h3>Dashboard</h3>
-								<iframe class="analysis_iframe" title="COVID19_analysis" src="https://app.powerbi.com/view?r=eyJrIjoiYWVmNjU1OTktNTM0Mi00ZWRkLWFlYWEtYjFhMjI4ZmNjZThlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" frameborder="0" allowFullScreen="true"></iframe>
-								<h6>The dashboard can be viewed on my Power BI page:</h6>
-								<p><a href="https://app.powerbi.com/view?r=eyJrIjoiYWVmNjU1OTktNTM0Mi00ZWRkLWFlYWEtYjFhMjI4ZmNjZThlIiwidCI6ImIwMTMyNzIyLWM4Y2EtNGRjNy1hOGJmLWY0ZTJhZTJhOTViMSJ9" target="_blank">Covid-19 - Data Analysis</a></p>																								
-							</article>
 
 						<!-- About -->
 							<article id="about">
